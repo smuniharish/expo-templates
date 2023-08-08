@@ -1,0 +1,52 @@
+{
+  "cli": {
+    "version": ">= 3.18.3"
+  },
+  "build": {
+    "development_internal": {
+      "releaseChannel": "development",
+      "developmentClient": true,
+      "distribution": "internal",
+      "env": {
+        "EXPO_PUBLIC_API_URL":"https://api.development.com",
+        "EXPO_PUBLIC_API_URL_TIMEOUT":"10000"
+      }
+    },
+    "development":{
+      "releaseChannel": "development",
+      "android":{
+        "buildType":"apk"
+      },
+      "ios":{
+        "simulator": true
+      },
+      "env": {
+        "EXPO_PUBLIC_API_URL":"https://api.development.com",
+        "EXPO_PUBLIC_API_URL_TIMEOUT":"10000"
+      }
+    },
+    "test": {
+      "releaseChannel": "test",
+      "android":{
+        "buildType":"apk"
+      },
+      "ios":{
+        "simulator": true
+      },
+      "env": {
+        "EXPO_PUBLIC_API_URL":"https://api.test.com",
+        "EXPO_PUBLIC_API_URL_TIMEOUT":"10000"
+      }
+    },
+    "production":{
+      "releaseChannel": "production",
+      "env": {
+        "EXPO_PUBLIC_API_URL":"https://api.production.com",
+        "EXPO_PUBLIC_API_URL_TIMEOUT":"10000"
+      }
+    }
+  },
+  "submit": {
+    "production": {}
+  }
+}
