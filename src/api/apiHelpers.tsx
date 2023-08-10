@@ -39,6 +39,21 @@ const getAPIWithTokenHelper = async (api: string, token: string) => {
     throw error;
   }
 };
+const getAPIWithTokenAndParamsHelper = async (api: string, token: string,params:any) => {
+  const config = {
+    headers: {
+      ...globalConfig,
+      ...getAuthorizationTokenKV(token),
+    },
+    params:params,
+  };
+  try {
+    const response = await apiInstance.get(api, config);
+    return response;
+  } catch (error) {
+    throw error;
+  }
+};
 const postAPIWithoutTokenHelper = async (api: string, data: any) => {
   const config = {
     headers: {
@@ -62,6 +77,26 @@ const postAPIWithTokenHelper = async (
       ...globalConfig,
       ...getAuthorizationTokenKV(token),
     },
+  };
+  try {
+    const response = await apiInstance.post(api, data, config);
+    return response;
+  } catch (error) {
+    throw error;
+  }
+};
+const postAPIWithTokenAndParamsHelper = async (
+  api: string,
+  data: any,
+  params:any,
+  token: string
+) => {
+  const config = {
+    headers: {
+      ...globalConfig,
+      ...getAuthorizationTokenKV(token),
+    },
+    params:params
   };
   try {
     const response = await apiInstance.post(api, data, config);
@@ -101,6 +136,26 @@ const putAPIWithTokenHelper = async (
     throw error;
   }
 };
+const putAPIWithTokenAndParamsHelper = async (
+  api: string,
+  data: string,
+  token: string,
+  params:any
+) => {
+  const config = {
+    headers: {
+      ...globalConfig,
+      ...getAuthorizationTokenKV(token),
+    },
+    params:params
+  };
+  try {
+    const response = await apiInstance.put(api, data, config);
+    return response;
+  } catch (error) {
+    throw error;
+  }
+};
 const deleteAPIWithoutTokenHelper = async (api: string) => {
   const config = {
     headers: {
@@ -128,13 +183,32 @@ const deleteAPIWithTokenHelper = async (api: string, token: string) => {
     throw error;
   }
 };
+const deleteAPIWithTokenAndParamsHelper = async (api: string, token: string,params:any) => {
+  const config = {
+    headers: {
+      ...globalConfig,
+      ...getAuthorizationTokenKV(token),
+    },
+    params:params
+  };
+  try {
+    const response = await apiInstance.delete(api, config);
+    return response;
+  } catch (error) {
+    throw error;
+  }
+};
 export {
   getAPIWithoutTokenHelper,
   getAPIWithTokenHelper,
+  getAPIWithTokenAndParamsHelper,
   postAPIWithoutTokenHelper,
   postAPIWithTokenHelper,
+  postAPIWithTokenAndParamsHelper,
   putAPIWithoutTokenHelper,
   putAPIWithTokenHelper,
+  putAPIWithTokenAndParamsHelper,
   deleteAPIWithoutTokenHelper,
   deleteAPIWithTokenHelper,
+  deleteAPIWithTokenAndParamsHelper
 };
