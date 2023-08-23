@@ -1,37 +1,33 @@
-import LottieFiles from "@/assets/lottie";
-import { debugLog } from "@/config/logsConfig";
-import { heightPercent, widthPercent } from "@/helpers/functions/responsive";
-import { useTheme } from "@/hooks";
-import { LottieView, StyleSheet, View } from "@/imports";
+import LottieFiles from '@/assets/lottie';
+import { debugLog } from '@/config/logsConfig';
+import { heightPercent, widthPercent } from '@/helpers/functions/responsive';
+import { useTheme } from '@/hooks';
+import { LottieView, StyleSheet, View } from '@/imports';
 
-const index = () => {
+const Splash = () => {
   const theme = useTheme();
-  debugLog("Splash")
+  debugLog('Splash');
   const styles = StyleSheet.create({
     container: {
-      width: "100%",
-      height: "100%",
+      width: '100%',
+      height: '100%',
       backgroundColor: theme.colors.primary,
       borderRadius: heightPercent(0),
       borderWidth: 0,
       borderColor: theme.colors.background,
-      flexDirection: "column",
-      alignItems: "center",
-      justifyContent: "center",
+      flexDirection: 'column',
+      alignItems: 'center',
+      justifyContent: 'center',
     },
-    Lottie:{
+    Lottie: {
       width: widthPercent(60),
       height: widthPercent(60),
-    }
+    },
   });
   return (
     <View style={styles.container}>
-      <LottieView
-        autoPlay
-        style={styles.Lottie}
-        source={LottieFiles.successVerification}
-      />
+      <LottieView autoPlay style={styles.Lottie} source={LottieFiles.successVerification} />
     </View>
   );
 };
-export default index;
+export default Splash;

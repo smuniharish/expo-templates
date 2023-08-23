@@ -1,9 +1,4 @@
-import { createContext, useState } from "@/imports";
-
-interface tokenInterface {
-  accessToken: string | null;
-  expiryTime: number | null;
-}
+import { createContext, useState } from '@/imports';
 interface userInterface {
   id: string;
   username: string;
@@ -12,19 +7,17 @@ interface userInterface {
   role: string;
 }
 type AuthContextType = {
-  tokenDetails: tokenInterface | undefined;
+  accessToken: string | null;
   userDetails: userInterface | undefined;
-  setTokenDetails: (value: any) => void;
+  setAccessToken: (value: any) => void;
   setUserDetails: (value: any) => void;
 };
 export const AuthContext = createContext<AuthContextType | null>(null);
 const AuthContextProvider = (props: any) => {
-  const [tokenDetails, setTokenDetails] = useState();
+  const [accessToken, setAccessToken] = useState(null);
   const [userDetails, setUserDetails] = useState();
   return (
-    <AuthContext.Provider
-      value={{ tokenDetails, userDetails, setTokenDetails, setUserDetails }}
-    >
+    <AuthContext.Provider value={{ accessToken, userDetails, setAccessToken, setUserDetails }}>
       {props.children}
     </AuthContext.Provider>
   );

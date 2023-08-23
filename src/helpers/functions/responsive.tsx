@@ -1,6 +1,6 @@
-import { Dimensions, hp, wp } from "@/imports";
-const SCREEN_WIDTH = Dimensions.get("window").width;
-const SCREEN_HEIGHT = Dimensions.get("window").height;
+import { Dimensions, hp, wp } from '@/imports';
+const SCREEN_WIDTH = Dimensions.get('window').width;
+const SCREEN_HEIGHT = Dimensions.get('window').height;
 const heightPercent = (percent: any) => {
   return hp(percent);
 };
@@ -10,10 +10,4 @@ const widthPercent = (percent: any) => {
 const fontPercent = (percent: any) => {
   return hp(percent);
 };
-export {
-  SCREEN_HEIGHT,
-  SCREEN_WIDTH,
-  heightPercent,
-  widthPercent,
-  fontPercent,
-};
+export { SCREEN_HEIGHT, SCREEN_WIDTH, heightPercent, widthPercent, fontPercent };

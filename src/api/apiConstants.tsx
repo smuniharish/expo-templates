@@ -1,6 +1,6 @@
 // REGISTER API END POINTS ONLY
-const LOGIN_API = "/api"
+const LOGIN_API = '/api';
 export {
-    // api constants...
-    LOGIN_API
-}
+  // api constants...
+  LOGIN_API,
+};

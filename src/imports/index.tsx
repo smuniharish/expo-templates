@@ -1,135 +1,92 @@
-// axios
-import axios from 'axios'
-export {axios}
-
-// FlashList
-import {FlashList} from "@shopify/flash-list"
-export {FlashList}
-
-// react
-import { useState,Fragment,useEffect,useContext,createContext } from 'react';
-export {useState,Fragment,useEffect,useContext,createContext}
-
-// react-native
-import { View, Text, Platform, Button,StyleSheet,Dimensions,useColorScheme } from "react-native";
-export {View,Text,Platform,Button,StyleSheet,Dimensions,useColorScheme}
-
-//CheckBox
+import {
+  AntDesign,
+  Entypo,
+  EvilIcons,
+  Feather,
+  FontAwesome,
+  FontAwesome5,
+  Fontisto,
+  Foundation,
+  Ionicons,
+  MaterialCommunityIcons,
+  MaterialIcons,
+  Octicons,
+  SimpleLineIcons,
+  Zocial,
+} from '@expo/vector-icons';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import { PayloadAction, createSlice, configureStore } from '@reduxjs/toolkit';
+import { FlashList } from '@shopify/flash-list';
+import axios from 'axios';
+import { useAssets } from 'expo-asset';
 import Checkbox from 'expo-checkbox';
-export {Checkbox}
-
-// smh-rn-typescript-hooks
-import {useValidateCheckBox, useValidateSelect,useValidateForm} from 'smh-rn-typescript-hooks'
-export {useValidateCheckBox,useValidateSelect,useValidateForm}
-
-// Dropdown picker
-import DropDownPicker from "react-native-dropdown-picker";
-export {DropDownPicker}
-
-// Text input
-import {
-    TextField,
-    FilledTextField,
-    OutlinedTextField,
-  } from "rn-material-ui-textfield";
-export {TextField,
-    FilledTextField,
-    OutlinedTextField}
-
-// expo vector icons
-import {
-    AntDesign,
-    Entypo,
-    EvilIcons,
-    Feather,
-    FontAwesome,
-    FontAwesome5,
-    Fontisto,
-    Foundation,
-    Ionicons,
-    MaterialCommunityIcons,
-    MaterialIcons,
-    Octicons,
-    SimpleLineIcons,
-    Zocial,
-  } from "@expo/vector-icons";
-  export {
-    AntDesign,
-    Entypo,
-    EvilIcons,
-    Feather,
-    FontAwesome,
-    FontAwesome5,
-    Fontisto,
-    Foundation,
-    Ionicons,
-    MaterialCommunityIcons,
-    MaterialIcons,
-    Octicons,
-    SimpleLineIcons,
-    Zocial,
-  }
-
-  // logs
-  import {fileAsyncTransport, logger} from 'react-native-logs'
-  import { consoleTransport } from 'react-native-logs/dist/transports/consoleTransport'; 
-  export {fileAsyncTransport,logger,consoleTransport}
-
-  // expo file system
-  import * as FileSystem from "expo-file-system";
-  export {FileSystem}
-
-  // react-native-responsive-screen
-  import {
-    heightPercentageToDP as hp,
-    heightPercentageToDP as wp,
-  } from "react-native-responsive-screen";
-  export {hp,wp}
-
-  // Expo secure store
-  import * as SecureStore from "expo-secure-store";
-  export {SecureStore}
-// expo-asset
-  import { useAssets } from 'expo-asset';
-  export {useAssets}
-
-  //expo-font
-import { useFonts } from 'expo-font';
-export {useFonts}
-
-// expo-router
-import { SplashScreen } from 'expo-router';
-export {SplashScreen}
-
-// react-redux
-import { useDispatch, useSelector,Provider } from "react-redux";
-export {useDispatch,useSelector,Provider}
-
-// i18n
-import {I18n} from 'i18n-js'
-export {I18n}
-
-// expo-localization
-import { useLocales } from 'expo-localization';
-import * as Localization from 'expo-localization'
-export {useLocales,Localization}
-
-// expo-notifications
-import * as Notifications from 'expo-notifications'
-export {Notifications}
-
-// expo-device
+import Constants from 'expo-constants';
 import * as Device from 'expo-device';
-export {Device}
-
-// expo-constants
-import Constants from "expo-constants";
-export {Constants}
-
-// lottie-react-native
-import LottieView from "lottie-react-native";
-export {LottieView}
-
-// redux-toolkit
-import { PayloadAction, createSlice } from "@reduxjs/toolkit";
-export {PayloadAction,createSlice}
+import * as FileSystem from 'expo-file-system';
+import { useFonts } from 'expo-font';
+import { useLocales } from 'expo-localization';
+import * as Localization from 'expo-localization';
+import * as Notifications from 'expo-notifications';
+import { SplashScreen } from 'expo-router';
+import * as SecureStore from 'expo-secure-store';
+import { I18n } from 'i18n-js';
+import LottieView from 'lottie-react-native';
+import { useState, Fragment, useEffect, useContext, createContext } from 'react';
+import { View, Text, Platform, Button, StyleSheet, Dimensions, useColorScheme } from 'react-native';
+import DropDownPicker from 'react-native-dropdown-picker';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import { fileAsyncTransport, logger } from 'react-native-logs';
+import { consoleTransport } from 'react-native-logs/dist/transports/consoleTransport';
+import { heightPercentageToDP as hp, heightPercentageToDP as wp } from 'react-native-responsive-screen';
+import { useDispatch, useSelector, Provider, TypedUseSelectorHook } from 'react-redux';
+import { persistReducer, persistStore } from 'redux-persist';
+import { PersistGate } from 'redux-persist/integration/react';
+import { TextField, FilledTextField, OutlinedTextField } from 'rn-material-ui-textfield';
+import { createSecureStore } from 'smh-expo-persist-secure-store';
+import { OTPTextView } from 'smh-rn-otp-textinput';
+import { useValidateCheckBox, useValidateSelect, useValidateForm } from 'smh-rn-typescript-hooks';
+export { axios };
+export { FlashList };
+export { useState, Fragment, useEffect, useContext, createContext };
+export { View, Text, Platform, Button, StyleSheet, Dimensions, useColorScheme };
+export { Checkbox };
+export { useValidateCheckBox, useValidateSelect, useValidateForm };
+export { DropDownPicker };
+export { GestureHandlerRootView };
+export { TextField, FilledTextField, OutlinedTextField };
+export {
+  AntDesign,
+  Entypo,
+  EvilIcons,
+  Feather,
+  FontAwesome,
+  FontAwesome5,
+  Fontisto,
+  Foundation,
+  Ionicons,
+  MaterialCommunityIcons,
+  MaterialIcons,
+  Octicons,
+  SimpleLineIcons,
+  Zocial,
+};
+export { fileAsyncTransport, logger, consoleTransport };
+export { FileSystem };
+export { persistReducer, persistStore };
+export { PersistGate };
+export { hp, wp };
+export { SecureStore };
+export { useAssets };
+export { useFonts };
+export { SplashScreen };
+export { useDispatch, useSelector, Provider, TypedUseSelectorHook };
+export { I18n };
+export { createSecureStore };
+export { AsyncStorage };
+export { OTPTextView };
+export { useLocales, Localization };
+export { Notifications };
+export { Device };
+export { Constants };
+export { LottieView };
+export { PayloadAction, createSlice, configureStore };

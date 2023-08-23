@@ -1,3 +1,3 @@
-import persistReducer from './persistSlice'
-import localizationReducer from './localizationSlice'
-export {persistReducer,localizationReducer}
+import localizationReducer from './localizationSlice';
+import persistReducer from './persistSlice';
+export { persistReducer, localizationReducer };

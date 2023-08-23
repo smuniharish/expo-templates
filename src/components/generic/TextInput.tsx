@@ -1,4 +1,4 @@
-import { Fragment, OutlinedTextField, useValidateForm } from "@/imports";
+import { Fragment, OutlinedTextField, useValidateForm } from '@/imports';
 
 const TextInput = () => {
   const {
@@ -19,8 +19,8 @@ const TextInput = () => {
     valueBlurHandler: textBlurHandler,
     reset: textResetHandler,
   } = useValidateForm({
-    type: "string",
-    label: "TextLabel",
+    type: 'string',
+    label: 'TextLabel',
     isRequired: true,
     //   minValue?: number;
     //   maxValue?: number;
@@ -32,10 +32,10 @@ const TextInput = () => {
     //   validationPattern:/^([a-z0-9]{5,})$/,
     //   minValueError?: string;
     //   maxValueError?: string;
-    minLengthError: "MinLengthError",
-    maxLengthError: "MaxLengthErrorSudhakar",
+    minLengthError: 'MinLengthError',
+    maxLengthError: 'MaxLengthErrorSudhakar',
     //   focusError?: string;
-    validError: "ValidError",
+    validError: 'ValidError',
     //   valueChangeCallback?:any;
   });
   const {
@@ -56,8 +56,8 @@ const TextInput = () => {
     valueBlurHandler: numberBlurHandler,
     reset: numberResetHandler,
   } = useValidateForm({
-    type: "number",
-    label: "Number",
+    type: 'number',
+    label: 'Number',
     isRequired: true,
     minValue: 10,
     maxValue: 15,
@@ -67,12 +67,12 @@ const TextInput = () => {
     isDisabled: false,
     isEditable: true,
     //   validationPattern:/^([a-z0-9]{5,})$/,
-    minValueError: "MinValueError",
-    maxValueError: "MaxValueError",
+    minValueError: 'MinValueError',
+    maxValueError: 'MaxValueError',
     //   minLengthError: "MinLengthError",
     //   maxLengthError:"MaxLengthError",
     //   focusError?: string;
-    validError: "ValidError",
+    validError: 'ValidError',
     //   valueChangeCallback?:any;
   });
   return (

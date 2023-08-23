@@ -1,3 +1,4 @@
+import { useTheme } from '@/hooks';
 import {
   AntDesign,
   Entypo,
@@ -13,8 +14,7 @@ import {
   Octicons,
   SimpleLineIcons,
   Zocial,
-} from "@/imports";
-import { useTheme } from "@/hooks";
+} from '@/imports';
 interface OptionsInterface {
   type: string;
   name: string;
@@ -39,7 +39,7 @@ const IconTypes: any = {
 };
 const Icon = (options: OptionsInterface) => {
   const theme = useTheme();
-  const {colors,fontSizes,iconSizes} = theme;
+  const { colors, iconSizes } = theme;
   options.color = options.color || colors.primary;
   options.size = options.size || iconSizes.BASE;
   const { type, name, color, size } = options;

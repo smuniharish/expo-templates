@@ -1,6 +1,6 @@
-import BuildScreen from "./BuildForm";
+import BuildScreen from './BuildForm';
 
 export {
-    //.. components
-    BuildScreen
-}
+  //.. components
+  BuildScreen,
+};

@@ -1,4 +1,4 @@
-import english from "./english";
-import telugu from "./telugu";
+import english from './english';
+import telugu from './telugu';
 
-export {english,telugu}
+export { english, telugu };

@@ -1,22 +1,22 @@
 // import useValidateCheckBox from '@/hooks/useValidateCheckBox';
 import { Checkbox, StyleSheet, Text, View, useValidateCheckBox } from '@/imports';
 
-const CheckBox=()=> {
+const CheckBox = () => {
   const {
-    color:checkboxColor,
-    inputIsDisabled:checkBoxIsDisabled,
-    onValueChangeHandler:checkBoxChangeHandler,
-    value:checkBoxValue,
-    isValid:checkBoxIsValid,
-    customError:checkBoxCustomError,
-    hasError:checkBoxHasError,
-    reset:checkBoxReset,
-}= useValidateCheckBox({
-    isRequired:true,
-    value:false,
-    checkedColor:'#4630EB'
-})
-console.log("checkboxValue",checkBoxValue)
+    color: checkboxColor,
+    inputIsDisabled: checkBoxIsDisabled,
+    onValueChangeHandler: checkBoxChangeHandler,
+    value: checkBoxValue,
+    isValid: checkBoxIsValid,
+    customError: checkBoxCustomError,
+    hasError: checkBoxHasError,
+    reset: checkBoxReset,
+  } = useValidateCheckBox({
+    isRequired: true,
+    value: false,
+    checkedColor: '#4630EB',
+  });
+  console.log('checkboxValue', checkBoxValue);
 
   return (
     <View style={styles.container}>
@@ -31,7 +31,7 @@ console.log("checkboxValue",checkBoxValue)
       </View>
     </View>
   );
-}
+};
 export default CheckBox;
 const styles = StyleSheet.create({
   container: {
@@ -45,7 +45,7 @@ const styles = StyleSheet.create({
   },
   paragraph: {
     fontSize: 15,
-    color:"red"
+    color: 'red',
   },
   checkbox: {
     margin: 8,
