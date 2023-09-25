@@ -1,0 +1,72 @@
+{
+  "cli": {
+    "version": ">= 5.1.0"
+  },
+  "build": {
+    "development_internal": {
+      "releaseChannel": "development",
+      "developmentClient": true,
+      "distribution": "internal",
+      "expoCli": "6.3.10",
+      "yarn":"1.22.19",
+      "node":"18.17.1",
+      "pnpm": "8.7.1",
+      "env": {
+        "EXPO_PUBLIC_API_URL":"http://api.development.com",
+        "EXPO_PUBLIC_API_URL_TIMEOUT":"10000"
+      }
+    },
+    "development":{
+      "releaseChannel": "development",
+      "expoCli": "6.3.10",
+      "yarn":"1.22.19",
+      "node":"18.17.1",
+      "pnpm": "8.7.1",
+      "android":{
+        "image":"latest",
+        "buildType":"apk"
+      },
+      "ios":{
+        "image":"latest",
+        "simulator": true
+      },
+      "env": {
+        "EXPO_PUBLIC_API_URL":"http://api.development.com",
+        "EXPO_PUBLIC_API_URL_TIMEOUT":"10000"
+      }
+    },
+    "test": {
+      "releaseChannel": "test",
+      "expoCli": "6.3.10",
+      "yarn":"1.22.19",
+      "node":"18.17.1",
+      "pnpm": "8.7.1",
+      "android":{
+        "image":"latest",
+        "buildType":"apk"
+      },
+      "ios":{
+        "image":"latest",
+        "simulator": true
+      },
+      "env": {
+        "EXPO_PUBLIC_API_URL":"http://api.test.com",
+        "EXPO_PUBLIC_API_URL_TIMEOUT":"10000"
+      }
+    },
+    "production":{
+      "releaseChannel": "production",
+      "expoCli": "6.3.10",
+      "yarn":"1.22.19",
+      "node":"18.17.1",
+      "pnpm": "8.7.1",
+      "env": {
+        "EXPO_PUBLIC_API_URL":"http://api.production.com",
+        "EXPO_PUBLIC_API_URL_TIMEOUT":"10000"
+      }
+    }
+  },
+  "submit": {
+    "production": {}
+  }
+}
