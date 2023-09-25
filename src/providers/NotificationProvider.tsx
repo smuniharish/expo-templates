@@ -1,5 +1,6 @@
 import { infoLog, warnLog, debugLog } from '@/config/logsConfig';
-import { Constants, Device, Notifications, Platform, useEffect, useState } from '@/imports';
+import { stringifyValue } from '@/helpers/functions';
+import { Constants, Device, FC, Notifications, Platform, useEffect, useState } from '@/imports';
 Notifications.setNotificationHandler({
   handleNotification: async () => ({
     shouldShowAlert: true,
@@ -23,7 +24,7 @@ async function registerForPushNotificationsAsync() {
     token = await Notifications.getExpoPushTokenAsync({
       projectId: Constants.easConfig?.projectId,
     });
-    infoLog('token', JSON.stringify(token), Constants.easConfig?.projectId);
+    infoLog('token', stringifyValue(token), Constants.easConfig?.projectId);
   } else {
     alert('Must use physical device for Push Notifications');
   }
@@ -39,7 +40,7 @@ async function registerForPushNotificationsAsync() {
 
   return token;
 }
-const NotificationProvider = (props: any) => {
+const NotificationProvider: FC<any> = (props: any) => {
   const [expoPushToken, setExpoPushToken] = useState<Notifications.ExpoPushToken>();
   const [notification, setNotification] = useState<Notifications.Notification>();
 
@@ -54,14 +55,13 @@ const NotificationProvider = (props: any) => {
 
     const _onResponseReceivedListener: Notifications.Subscription | undefined =
       Notifications.addNotificationResponseReceivedListener((response) => {
-        warnLog('notification response', JSON.stringify(response));
+        warnLog('notification response', stringifyValue(response));
       });
     return () => {
       _onReceivedListener?.remove();
       _onResponseReceivedListener?.remove();
     };
   }, []);
-  debugLog('aaa', JSON.stringify(expoPushToken), JSON.stringify(notification));
 
   return props.children;
 };

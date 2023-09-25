@@ -1,6 +1,8 @@
+import AxiosInterceptorProvider from './AxiosInterceptorProvider';
 import CachingProvider from './CachingProvider';
 import GestureProvider from './GestureProvider';
 import I18nProvider from './I18nProvider';
+import NetworkProvider from './NetworkProvider';
 import NotificationProvider from './NotificationProvider';
 import PersistGateProvider from './PersistGateProvider';
 import { AuthContextProvider, ThemeContextProvider } from './context';
@@ -16,7 +18,11 @@ const index = (props: any) => {
             <AuthContextProvider>
               <I18nProvider>
                 <NotificationProvider>
-                  <CachingProvider>{props.children}</CachingProvider>
+                  <CachingProvider>
+                    <AxiosInterceptorProvider>
+                      <NetworkProvider>{props.children}</NetworkProvider>
+                    </AxiosInterceptorProvider>
+                  </CachingProvider>
                 </NotificationProvider>
               </I18nProvider>
             </AuthContextProvider>

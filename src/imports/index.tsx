@@ -17,7 +17,7 @@ import {
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { PayloadAction, createSlice, configureStore } from '@reduxjs/toolkit';
 import { FlashList } from '@shopify/flash-list';
-import axios from 'axios';
+import axios, { AxiosInstance, AxiosRequestConfig } from 'axios';
 import { useAssets } from 'expo-asset';
 import Checkbox from 'expo-checkbox';
 import Constants from 'expo-constants';
@@ -31,7 +31,7 @@ import { SplashScreen } from 'expo-router';
 import * as SecureStore from 'expo-secure-store';
 import { I18n } from 'i18n-js';
 import LottieView from 'lottie-react-native';
-import { useState, Fragment, useEffect, useContext, createContext } from 'react';
+import { useState, Fragment, useEffect, useContext, createContext,FC } from 'react';
 import { View, Text, Platform, Button, StyleSheet, Dimensions, useColorScheme } from 'react-native';
 import DropDownPicker from 'react-native-dropdown-picker';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
@@ -45,9 +45,11 @@ import { TextField, FilledTextField, OutlinedTextField } from 'rn-material-ui-te
 import { createSecureStore } from 'smh-expo-persist-secure-store';
 import { OTPTextView } from 'smh-rn-otp-textinput';
 import { useValidateCheckBox, useValidateSelect, useValidateForm } from 'smh-rn-typescript-hooks';
-export { axios };
+import * as ScreenOrientation from 'expo-screen-orientation';
+export { ScreenOrientation }
+export { axios, AxiosInstance, AxiosRequestConfig };
 export { FlashList };
-export { useState, Fragment, useEffect, useContext, createContext };
+export { useState, Fragment, useEffect, useContext, createContext, FC };
 export { View, Text, Platform, Button, StyleSheet, Dimensions, useColorScheme };
 export { Checkbox };
 export { useValidateCheckBox, useValidateSelect, useValidateForm };

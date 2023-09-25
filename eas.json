@@ -7,6 +7,10 @@
       "releaseChannel": "development",
       "developmentClient": true,
       "distribution": "internal",
+      "expoCli": "6.3.10",
+      "yarn":"1.22.19",
+      "node":"18.17.1",
+      "pnpm": "8.7.1",
       "env": {
         "EXPO_PUBLIC_API_URL":"https://api.development.com",
         "EXPO_PUBLIC_API_URL_TIMEOUT":"10000"
@@ -14,6 +18,10 @@
     },
     "development":{
       "releaseChannel": "development",
+      "expoCli": "6.3.10",
+      "yarn":"1.22.19",
+      "node":"18.17.1",
+      "pnpm": "8.7.1",
       "android":{
         "buildType":"apk"
       },
@@ -27,6 +35,10 @@
     },
     "test": {
       "releaseChannel": "test",
+      "expoCli": "6.3.10",
+      "yarn":"1.22.19",
+      "node":"18.17.1",
+      "pnpm": "8.7.1",
       "android":{
         "buildType":"apk"
       },
@@ -40,6 +52,10 @@
     },
     "production":{
       "releaseChannel": "production",
+      "expoCli": "6.3.10",
+      "yarn":"1.22.19",
+      "node":"18.17.1",
+      "pnpm": "8.7.1",
       "env": {
         "EXPO_PUBLIC_API_URL":"https://api.production.com",
         "EXPO_PUBLIC_API_URL_TIMEOUT":"10000"

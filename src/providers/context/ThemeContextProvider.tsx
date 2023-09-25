@@ -7,6 +7,7 @@ type Theme = {
   colors: {
     primary: string;
     screenBackground: string;
+    inputTextColor:string,
     background: string;
     card: string;
     text: string;
@@ -22,6 +23,10 @@ type Theme = {
     ramaGreen: string;
     lacon: string;
     lightPurple: string;
+    backdrop: string;
+    lightGray: string;
+    white: string;
+    gray: string;
   };
   fontSizes: fontSizesInterface;
   iconSizes: iconSizesInterface;
@@ -30,9 +35,10 @@ const DefaultTheme: Theme = {
   colors: {
     primary: 'rgb(43, 32, 126)',
     screenBackground: 'rgb(242,242,242)',
+    inputTextColor:'rgba(0, 0, 0, 0.8)',
+    text: 'rgb(0, 0, 0)',
     background: 'rgb(255,255,255)',
     card: 'rgb(255, 255, 255)',
-    text: 'rgb(0, 0, 0)',
     black: 'rgb(0, 0, 0)',
     buttonText: 'rgb(255, 255, 255)',
     border: 'rgb(195, 193, 193)',
@@ -45,6 +51,10 @@ const DefaultTheme: Theme = {
     ramaGreen: 'rgb(4, 102, 101)',
     lacon: 'rgb(248, 119, 74)',
     lightPurple: 'rgb(241, 148, 255)',
+    backdrop: 'rgba(117, 130, 131, 0.5)',
+    lightGray: 'rgba(117, 130, 131)',
+    gray: 'rgba(231, 231, 231, 0.78)',
+    white: 'rgb(255, 255, 255)',
   },
   fontSizes: {
     ...fontSizes,
@@ -64,10 +74,11 @@ const DarkTheme: Theme = {
   colors: {
     ...DefaultTheme.colors,
     primary: 'rgb(255, 255, 255)',
-    screenBackground: 'rgba(44, 41, 61, 0.8)',
+    screenBackground: 'rgba(0, 0, 0, 0.8)',
+    inputTextColor:'rgb(255, 255, 255)',
+    text: 'rgb(255, 255, 255)',
     background: 'rgb(43, 32, 126)',
     card: 'rgb(0, 0, 0)',
-    text: 'rgb(255, 255, 255)',
     black: 'rgb(255, 255, 255)',
     buttonText: 'rgb(43, 32, 126)',
     border: 'rgb(195, 193, 193)',
@@ -80,6 +91,10 @@ const DarkTheme: Theme = {
     ramaGreen: 'rgb(4, 102, 101)',
     lacon: 'rgb(248, 119, 74)',
     lightPurple: 'rgb(241, 148, 255)',
+    backdrop: 'rgba(117, 130, 131, 0.5)',
+    lightGray: 'rgba(117, 130, 131)',
+    gray: 'rgba(182, 187, 182, 0.78)',
+    white: 'rgb(255, 255, 255)',
   },
   fontSizes: { ...fontSizes },
   iconSizes: { ...iconSizes },

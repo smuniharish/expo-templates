@@ -1,6 +1,6 @@
-import { GestureHandlerRootView, StyleSheet } from '@/imports';
+import { FC, GestureHandlerRootView, StyleSheet } from '@/imports';
 
-const GestureProvider = (props: any) => {
+const GestureProvider: FC<any> = (props: any) => {
   const styles = StyleSheet.create({
     gesture: {
       flex: 1,

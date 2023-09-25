@@ -47,7 +47,8 @@
         {
           "android": {
             "enableProguardInReleaseBuilds": true,
-            "extraProguardRules": "-keep class expo.modules.** { *; }"
+            "extraProguardRules": "-keep class expo.modules.** { *; }",
+            "usesCleartextTraffic": true
           }
         }
       ],
@@ -79,12 +80,6 @@
         "expo-screen-orientation",
         {
           "initialOrientation": "DEFAULT"
-        }
-      ],
-      [
-        "expo-updates",
-        {
-          "username": "account-username"
         }
       ],
       "expo-localization"

@@ -2,9 +2,9 @@ import LottieFiles from '@/assets/lottie';
 import { debugLog } from '@/config/logsConfig';
 import { heightPercent, widthPercent } from '@/helpers/functions/responsive';
 import { useTheme } from '@/hooks';
-import { LottieView, StyleSheet, View } from '@/imports';
+import { FC, LottieView, StyleSheet, View } from '@/imports';
 
-const Splash = () => {
+const Splash:FC = () => {
   const theme = useTheme();
   debugLog('Splash');
   const styles = StyleSheet.create({
