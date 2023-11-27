@@ -8,7 +8,7 @@ import { FC } from '@/imports';
 
 const AxiosInterceptorProvider: FC<any> = (props: any) => {
   const authContext = useAuth();
-  const { accessToken, clearAuthContext, refreshToken, setAuthTokens, setUserDetails, userDetails } = authContext;
+  const { accessToken, refreshToken, userDetails } = authContext;
   infoLog('AxiosInterceptorProvider', accessToken, refreshToken, stringifyValue(userDetails));
   apiInstance.interceptors.request.use((config: any) => {
     if (accessToken) {
@@ -40,6 +40,7 @@ const AxiosInterceptorProvider: FC<any> = (props: any) => {
           return apiInstance(originalRequest);
         } catch (refreshError) {
           // Refresh token has also expired or refresh failed
+          infoLog(refreshError);
           clearAuthContext();
           // Redirect to login or handle the logout flow
         }

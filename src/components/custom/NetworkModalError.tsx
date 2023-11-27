@@ -1,7 +1,8 @@
+import { Text } from '../generic';
+
 import { heightPercent } from '@/helpers/functions/responsive';
 import { useTheme } from '@/hooks';
 import { FC, Linking, Modal, StyleSheet, TouchableOpacity, View } from '@/imports';
-import { Text } from '../generic';
 
 interface optionsInterface {
   displayText: string;
@@ -13,11 +14,6 @@ const NetworkModalError: FC<optionsInterface> = (options: optionsInterface) => {
     Linking.openSettings();
   };
   const styles = StyleSheet.create({
-    screen: {
-      flex: 1,
-      justifyContent: 'center',
-      alignItems: 'center',
-    },
     backdrop: {
       position: 'absolute',
       top: 0,
@@ -35,7 +31,7 @@ const NetworkModalError: FC<optionsInterface> = (options: optionsInterface) => {
       alignItems: 'center',
       justifyContent: 'center',
       width: '80%',
-      backgroundColor: 'white',
+      backgroundColor: colors.white || 'white',
       padding: heightPercent(2),
     },
     message: {

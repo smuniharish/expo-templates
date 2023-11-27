@@ -1,4 +1,4 @@
-import { BottomTabNavigationOptions, FC, StackNavigationOptions } from '@/imports';
+import { FC, StackNavigationOptions } from '@/imports';
 
 interface componentInterface {
   component: FC;

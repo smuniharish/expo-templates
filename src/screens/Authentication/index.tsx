@@ -1,5 +1,6 @@
-import { componentInterface } from '@/components/custom/interfaces';
 import Login from './Login';
+
+import { componentInterface } from '@/components/custom/interfaces';
 import { RouteNames } from '@/helpers/constants';
 import { SRF } from '@/helpers/functions';
 

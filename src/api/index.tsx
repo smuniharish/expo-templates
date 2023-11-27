@@ -1,12 +1,5 @@
 import { POST_LOGIN_API } from './apiConstants';
-import {
-  getAPIParamsHelper,
-  getAPIHelper,
-  postAPIParamsHelper,
-  postAPIHelper,
-  putAPIHelper,
-  postAPIFormHelper,
-} from './apiHelpers';
+import { postAPIHelper } from './apiHelpers';
 
 // Initialize the api related functions with the help of apiHelpers
 
@@ -20,8 +13,4 @@ const postLogin = async (data: any) => {
   }
 };
 
-
-
-export {
-  postLogin,
-};
+export { postLogin };

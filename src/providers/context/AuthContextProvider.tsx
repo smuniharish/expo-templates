@@ -1,6 +1,4 @@
-import { postRefreshToken } from '@/api';
-import { errorLog, infoLog } from '@/config/logsConfig';
-import { stringifyValue } from '@/helpers/functions';
+// import { postRefreshToken } from '@/api';
 import { createContext, useContext, useEffect, useState } from '@/imports';
 import { useAppDispatch, useAppSelector } from '@/store';
 import { clearRefreshToken, updateRefreshToken } from '@/store/slices/persistSlice';
@@ -16,9 +14,11 @@ interface userInterface {
 type AuthContextType = {
   accessToken: string | null;
   refreshToken: string | null;
-  userDetails: userInterface | null;
+  notifyToken: string | null;
+  setNotifyToken: (token: string) => void;
+  userDetails: any | null;
   setAuthTokens: (accessToken: string, refreshToken: string) => void;
-  setUserDetails: (value: userInterface) => void;
+  setUserDetails: (value: any) => void;
   clearAuthContext: () => void;
 };
 export const AuthContext = createContext<AuthContextType | null>(null);
@@ -33,10 +33,11 @@ const AuthContextProvider = (props: any) => {
   const [accessToken, setAccessToken] = useState<string | null>(null);
   const [refreshToken, setRefreshToken] = useState<string | null>(null);
   const [userDetails, setUserDetails] = useState<userInterface | null>(null);
+  const [notifyToken, setNotifyToken] = useState<string | null>(null);
   const dispatch = useAppDispatch();
   const storedRefreshToken = useAppSelector((state) => state.auth.refreshToken);
 
-  infoLog('AuthContextProvider', storedRefreshToken, refreshToken, accessToken);
+  // infoLog('AuthContextProvider', storedRefreshToken, refreshToken, accessToken);
 
   useEffect(() => {
     if (storedRefreshToken) {
@@ -49,22 +50,22 @@ const AuthContextProvider = (props: any) => {
     setRefreshToken(null);
     dispatch(clearRefreshToken());
   };
-  useEffect(() => {
-    const attemptLogin = async () => {
-      if (storedRefreshToken) {
-        try {
-          const refreshResponse = await postRefreshToken({ refreshToken: storedRefreshToken });
-          if (refreshResponse.status === 401) {
-            clearAuthContext();
-          }
-        } catch (err) {
-          errorLog(stringifyValue(err));
-          clearAuthContext();
-        }
-      }
-    };
-    attemptLogin();
-  }, []);
+  // useEffect(() => {
+  //   const attemptLogin = async () => {
+  //     if (storedRefreshToken) {
+  //       try {
+  //         const refreshResponse = await postRefreshToken({ refreshToken: storedRefreshToken });
+  //         if (refreshResponse.status === 401) {
+  //           clearAuthContext();
+  //         }
+  //       } catch (err) {
+  //         errorLog(stringifyValue(err));
+  //         clearAuthContext();
+  //       }
+  //     }
+  //   };
+  //   attemptLogin();
+  // }, []);
   const setAuthTokens = (newAccessToken: string, newRefreshToken: string) => {
     setAccessToken(newAccessToken);
     setRefreshToken(newRefreshToken);
@@ -73,7 +74,16 @@ const AuthContextProvider = (props: any) => {
 
   return (
     <AuthContext.Provider
-      value={{ accessToken, refreshToken, userDetails, setAuthTokens, setUserDetails, clearAuthContext }}
+      value={{
+        accessToken,
+        refreshToken,
+        userDetails,
+        setAuthTokens,
+        setUserDetails,
+        clearAuthContext,
+        setNotifyToken,
+        notifyToken,
+      }}
     >
       {props.children}
     </AuthContext.Provider>

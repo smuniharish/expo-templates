@@ -1,4 +1,4 @@
-import { infoLog, warnLog, debugLog } from '@/config/logsConfig';
+import { infoLog, warnLog } from '@/config/logsConfig';
 import { stringifyValue } from '@/helpers/functions';
 import { Constants, Device, FC, Notifications, Platform, useEffect, useState } from '@/imports';
 Notifications.setNotificationHandler({
@@ -43,6 +43,7 @@ async function registerForPushNotificationsAsync() {
 const NotificationProvider: FC<any> = (props: any) => {
   const [expoPushToken, setExpoPushToken] = useState<Notifications.ExpoPushToken>();
   const [notification, setNotification] = useState<Notifications.Notification>();
+  infoLog(expoPushToken, notification);
 
   useEffect(() => {
     registerForPushNotificationsAsync().then((token) => setExpoPushToken(token));

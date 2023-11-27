@@ -1,5 +1,5 @@
 import { NetworkModalError } from '@/components/custom';
-import { FC, Fragment, NetInfo, createContext, useContext, useEffect, useState } from '@/imports';
+import { FC, Fragment, NetInfo, useEffect, useState } from '@/imports';
 const NetworkProvider: FC<any> = (props: any) => {
   const [networkIsAvailable, setNetworkIsAvailable] = useState(true);
   useEffect(() => {

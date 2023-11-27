@@ -1,6 +1,6 @@
-import NetworkModalError from "./NetworkModalError";
+import NetworkModalError from './NetworkModalError';
 
 export {
   //.. components
-  NetworkModalError
+  NetworkModalError,
 };
